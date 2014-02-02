@@ -8,12 +8,12 @@
 # Example output: http://img.skitch.com/20100522-d1kkhfu6yub7gpye97ikfuubi2.png
 
 require 'rubygems'
-require 'fastercsv'
+require 'csv'
 require 'ostruct'
 require 'term/ansicolor'
 require 'prawn'
 require 'prawn/layout/grid'
-require "rqr"
+#require "rqr"
 
 
 $: << File.join(File.dirname(__FILE__), 'lib')
@@ -41,7 +41,7 @@ Prawn::Document.generate("#{outfile}.pdf",
 
     @num_cards_on_page = 0
 
-    pdf.font "#{Prawn::BASEDIR}/data/fonts/DejaVuSans.ttf"
+    #pdf.font "#{Prawn::BASEDIR}/data/fonts/DejaVuSans.ttf"
 
     cards.each_with_index do |card, i|
 
@@ -69,8 +69,8 @@ Prawn::Document.generate("#{outfile}.pdf",
     end
 
     # --- Footer
-    pdf.number_pages "#{outfile}.pdf", [pdf.bounds.left,  -28]
-    pdf.number_pages "<page>/<total>", [pdf.bounds.right-16, -28]
+    #pdf.number_pages "#{outfile}.pdf", [pdf.bounds.left,  -28]
+    #pdf.number_pages "<page>/<total>", [pdf.bounds.right-16, -28]
 end
 
 puts ">>> Generated PDF file in '#{outfile}.pdf' with #{cards.size} stories:".black.on_green
